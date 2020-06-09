@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <style>
+            /* 속성선택자
+                선택자[속성이름] : 특정 속성을 가지는 태그들을 선택.
+                ex) input[type]
+            
+                선택자
+                [속성이름 = 속성값]
+                특정 속성을 가지며, 속성에 특정값을 가지는 태그를 선택.
+             */
+            input{ /* 선택자 */
+                height: 30px;
+                border: 1px solid blue;
+            }
+            
+            input[type=password]{ /* 속성 선택자 */
+                background-color: orange;
+            }
+            
+            img[alt="php"]{
+                width: 40%;
+            /* css영역에서 지정하는 태그는 태그 자체에서 기술한 태그보다 우위로 적용됨*/
+            }
+            
+            img[src$=png]{
+                border: 3px solid green;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <input type="text" id="id"><br>
+        <input type="password" id="pw"><br>
+        <img src="../image/chicken.jpeg" width="30%" alt="chicken">
+        <img src="../image/php.jpeg" width="30%" alt="php"><br>
+        <img src="../Day02/img/icon_16.png" width="10%">
+    </body>
+</html>

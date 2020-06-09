@@ -1,0 +1,65 @@
+<!DOCTYPE html> <html>
+<head>
+    <title>CSS3 Selector Basic Page</title>
+    <style>
+        p::first-letter {
+            font-size: 3em;
+        }
+
+        p::first-line {
+            color: red;
+        }
+        
+         #nav {
+                overflow: hidden;
+            }
+            
+            #nav>li{
+                list-style: none;
+                padding: 15px;
+                float: left;
+                
+            }
+            
+            #nav>li:nth-child(2n+1){
+                background-color: chocolate;
+            }
+            #nav>li:nth-child(2n){
+                background-color: aqua;
+            }
+            #nav>li:first-child{
+                border: 2px solid black;
+                border-radius: 10px 0 0 10px;
+            }
+            #nav>li:last-child{
+                border: 2px black;
+                border-radius: 0 10px 10px 0;
+            }
+        
+            a:hover{
+                text-decoration: line-through;
+            }
+        
+            a:visited{
+                color: black;
+            }
+    </style>
+</head>
+
+<body>
+    <h1>Lorem ipsum dolor sit amet</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>Aenean ac erat et massa vehicula laoreet consequat et sem.</p>
+    
+    <ul id="nav">
+            <li><a href="#1">home</a></li>
+            <li><a href="#2">page01</a></li>
+            <li><a href="#3">page02</a></li>
+            <li><a href="#4">page03</a></li>
+            <li><a href="#5">page04</a></li>
+            <li><a href="#6">page05</a></li>
+            <li><a href="#7">last</a></li>
+    </ul>
+</body>
+
+</html>

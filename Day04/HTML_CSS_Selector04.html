@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <style>
+            /*
+                후손선택 : 선택의 범위를 제한한다.
+                선택자 선택범위 선택자
+            ex)
+            */    
+            div h1 {
+                color: firebrick
+            }
+            
+            #header > h1 {
+                background-color: aquamarine;
+            }
+            
+            #myform input{
+                width: 25%
+            }
+            
+            #myform input:disabled{
+                background-color: darkblue;
+            }
+            
+            #myform input:enabled {
+                background-color: aquamarine;
+            }
+            
+            #viewMenu[type="checkbox"]:checked+div{
+                display: contents;
+            }
+            
+            #navigation {
+                overflow: hidden;
+            }
+            
+            #navigation>li{
+                list-style: none;
+                padding: 15px;
+                float: left;
+                
+            }
+            
+            #navigation>li:nth-child(2n+1){
+                background-color: chocolate;
+            }
+            #navigation>li:nth-child(2n){
+                background-color: aqua;
+            }
+            #navigation>li:first-child{
+                border: 2px solid black;
+                border-radius: 10px 0 0 10px;
+            }
+            #navigation>li:last-child{
+                border: 2px black;
+                border-radius: 0 10px 10px 0;
+            }
+            
+            
+        </style>
+    </head>
+    <body>
+        <ul id="navigation">
+            <li> 1 </li>
+            <li> 2 </li>
+            <li> 3 </li>
+            <li> 4 </li>
+            <li> 5 </li>
+            <li> 6 </li>
+            <li> 7 </li>
+        </ul>
+        
+        
+        
+        <div id="header">
+            <h1 class="title">TITLE</h1>
+            <p>안녕하세요</p>
+        </div>
+        <div id="section">
+            <h1 class="nav"> NAVIGATION </h1>
+            <p>안녕하세요</p>
+        </div>
+        <table>
+        <tr>
+            <td>아이디</td><td><input type="text"></td>
+        </tr>
+        <tr>
+            <td>비밀번호</td><td><input type="password"></td>
+        </tr>
+        </table>
+        <div id="footer">
+            <p id="hover">HOVER</p>
+            <p id="active">ACTIVE</p>
+        </div>
+        <hr>
+        <form id="myform">
+            <input type="text">
+            <br>
+            <input type="text" value="테스트용, 이 안에는 입력할 수 없음." disabled>
+            <br>
+            <input type="password" required>
+            <br>
+            <input type="submit">
+        </form>
+        <br>
+        <br>
+        <form id="myform2">
+            <div>
+                약관보기 : <input type="checkbox" id="viewMenu">
+                <div id="view" hidden>
+                    <H4>약관내용</H4>
+                    <p>1234555</p>
+                </div>
+            </div>
+            <div>
+                약관동의 : <input type="checkbox">
+            </div>
+            <div>
+                약관동의 : <input type="checkbox">
+            </div>
+        </form>
+    </body>
+</html>
