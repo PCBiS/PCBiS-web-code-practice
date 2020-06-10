@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>실명 확인 회원 가입.</title>
+        <meta charset="utf-8">
+        <style>
+            login_body{
+                width: 320px;
+            }
+            
+            #login_inner_body{
+                width: 300px;
+                padding: 3px;
+                border: 1px solid gray;
+                
+            }
+            
+            #selectType{
+                margin-top: 10px;
+                margin-bottom: 10px;
+                margin-left: 8px;
+            }
+            
+            #inputName{
+                margin-left: 15px;
+                margin-bottom: 10px;
+            }
+            
+            #inputName label{
+                margin-right: 69px;
+                
+            }
+            
+            #inputName input{
+                width: 155px;   
+            }
+            
+            #inputPnum{
+                margin-left: 15px;
+            }
+            
+            #inputPnum label{
+                margin-right: 10px;
+            }
+            
+            #inputPnum input{
+                width: 65.5px;
+            }
+            
+            #isChecked{
+                margin-left: 16px;
+                margin-top: 10px;
+                border-bottom: 1px solid gray;
+            }
+            
+            #infoSubmit{
+                align-content: center;
+            }
+            
+            #infoSubmit input{
+                display: block;
+                margin: auto;
+                margin-top: 8px;
+                margin-bottom: 8px;
+                width: 55px;
+                height: 33px;
+                align-content: center;
+            }
+        </style>
+        <script>
+            function selectSet(){
+                if($('input:radio[id=pNum]').is(':checked')){
+                    $('#personalNum').show();
+                }else{
+                    $('#personalNum').hide();
+                }
+            }
+        </script>
+    </head>
+    
+    <body>
+        <div id="login_body">
+            <H3>실명확인 회원가입</H3>
+            <div id="login_inner_body">
+                <form action="login" method="post" class="form">
+                    <div id="selectType">
+                        <input type="radio" id="iPin" name="check" onchange="selectSet()">아이핀(i-Pin)&nbsp;&nbsp;
+                        <input type="radio" id="pNum" name="check" onchange="selectSet()">주민등록번호
+                    </div>
+                    <div id="personalNum" style="">
+                        <div id="inputName">
+                            <label>이름</label><input type="text" id="name" maxlength="4">
+                        </div>    
+                        <div id="inputPnum">
+                            <label>주민등록번호</label>
+                            <input type="text" id="pnum01" maxlength="6" required> - <input type="password" id="pnum02" maxlength="7" required>
+                        </div>
+                        <div id="isChecked">
+                        <input type="checkbox" required> 주민등록번호 처리에 동의합니다.
+                        </div>
+                    </div>
+                    <div id="infoSubmit">
+                        <input type="submit" value="확인">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
