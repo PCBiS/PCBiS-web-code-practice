@@ -43,30 +43,3 @@ alert(name);
 
 let age = 20;
 //let age = 33;
-
-// 함수 : function 함수이름(매개변수) {실행코드}
-// 익명 함수 : function (매개변수) {실행코드}
-// 객체 : {}
-// 배열 : []
-
-num1 + 1;
-alert(num1);
-
-let stringVar = '문자열';
-let numberVar = 273;
-let booleanVar = false;
-let functionVar = function() {
-    alert('this is function');
-}
-let objectVar = {};
-let arrayVar = [1, 2, 3, "텍스트"];
-
-
-alert(stringVar);
-alert(numberVar);
-alert(booleanVar);
-alert(functionVar);
-alert(objectVar);
-alert(arrayVar);
-
-functionVar();
