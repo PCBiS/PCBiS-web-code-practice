@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Hi Low Game</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'> -->
+    <script src='HiLow.js'></script>
+</head>
+
+<body>
+    <h1>Hi Low 게임</h1>
+    <hr>
+    <ul>
+        <li>1 ~ 100 범위에서 무작위의 숫자가 선정됩니다.</li>
+        <li>기회는
+            <font style="color: red;">3번</font>이며</li>
+        <li>만일 고른 수가 무작위의 수보다 높다면 = 고른 수는 무작위의 수 보다 높습니다.</li>
+        <li>만일 고른 수가 무작위의 수보다 낮다면 = 고른 수는 무작위의 수 보다 낮습니다.</li>
+        <li>만일 고른 수가 무작위의 수와 같다면 = 이겼습니다!</li>
+        <li>준비가 되셨다면 무작위의 숫자를 아래 창에 입력하시고 입력 버튼을 누르세요.</li>
+    </ul>
+
+    <input type="text" id="numBox">
+    <br>
+    <input type="button" id="sendBtn" onclick="inNum();" value="전송하기">
+
+</body>
+
+</html>
