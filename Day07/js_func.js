@@ -106,9 +106,9 @@
 
 // eval(jsCode);
 
-var krw = '1000원';
-var usd = '1.2$';
+// var krw = '1000원';
+// var usd = '1.2$';
 
-console.log('number() : ' + Number(krw) + ", " + Number(usd));
-console.log("parseInt() : " + parseInt(krw) + ", " + parseInt(usd));
-console.log("parseFloat() : " + parseFloat(krw) + ", " + parseFloat(usd));
+// console.log('number() : ' + Number(krw) + ", " + Number(usd));
+// console.log("parseInt() : " + parseInt(krw) + ", " + parseInt(usd));
+// console.log("parseFloat() : " + parseFloat(krw) + ", " + parseFloat(usd));
