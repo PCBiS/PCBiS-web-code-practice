@@ -90,3 +90,8 @@ for (var i = 0; i < stu.length; i++) {
 };
 
 document.writeln(stuList);
+
+
+stu.sort(function(left, right) {
+    return right.getSum() - left.getSum();
+});
