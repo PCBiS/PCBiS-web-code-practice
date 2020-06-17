@@ -1,3 +1,10 @@
+window.onload = function() {
+    // 테스트 코드!! 이 코드 안없애면 계속 저장소 초기화 됨.
+    localStorage.clear();
+    // 테스트 코드!! 이 코드 안없애면 계속 저장소 초기화 됨.
+    initLocalStorage();
+}
+
 function Member(uid, pw, name) {
     let userID = uid;
     let userPW = pw;
@@ -48,16 +55,11 @@ function getData() {
         uName.focus();
         return false;
     }
-    //정상이면 이 아래로 값을 입력하는 로직을 구현하여 값을 입력.
-    //alert(this.userID.value + ' + ' + this.userPW.value + ' + ' + this.uName.value);
+    // 정상이면 이 아래로 값을 입력하는 로직을 구현하여 값을 입력.
     members.push(new Member(userID, userPW, uName));
-    //alert(members[0].getUname().value);
-
+    setMemberValueToJSON(members);
+    // 테스트 결과 배열이 내부 저장공간에 들어가는거 자체는 확인 했으나 값을 확인 할 수 없음.
     document.getElementById('inputMemberValue').reset();
-}
-
-function setMemberValueToJSON(member) {
-
 }
 
 /* 
@@ -68,21 +70,52 @@ jData라는 지역변수에 대입하고, 'memberList'라는 저장소에
 json 데이터로 변환 된 자료를 입력한다.
 */
 function initLocalStorage() {
+    // 지역변수 'data'에 로컬스토리지명 'memberList'를 대입시도.
     var data = localStorage.getItem('memberList');
+
     if (data != null) {
+        // data가 null이 아니면
         members = JSON.parse(data);
     } else {
+        // data가 null이면
         var jData = JSON.stringify(members);
         localStorage.setItem('memberList', jData);
     }
 }
 
 /*
-    
+    시작 할 때
+    기존 자료가 존재하지 않는다면 에러임으로 초기화 작업을 수행.
+    기존 자료가 존재한다면 기존 로컬 스토리지 'memberList' 에서
+    자료를 불러와서 자료가 끝날 때 까지 해당 자료를 출력한다.
 */
-function saveLocalStorage() {
-    var jData = JSON.stringify(members);
-    localStorage.setItem('memberList', jData);
+function initGetLocalStorageData() {
+    var data = localStorage.getItem('memberList');
+    if (data == null) {
+        // 자료가 없으면 저장소를 초기화 시도한다. - 애시당초 이 상황에 오는경우가 이상한 경우지만.
+        initLocalStorage();
+    } else {
+        // 자료가 있으면 이하 자료 찍는 로직을 돌린다.
+        var memberList = '';
+        //id = "dListTitle" 아래로 자료를 규칙에 맞춰 찍어낸다.
+    }
+}
+
+
+/*
+로컬스토리지에 member(new Members(values)); 를 받아서
+로컬스토리지에 저장한다.
+*/
+function setMemberValueToJSON(member) {
+    var jData = JSON.stringify(member);
+    var test = localStorage.getItem('memberList');
+    if (test != null) {
+        localStorage.setItem('memberList', jData);
+    } else {
+        alert('저장 공간이 없습니다. 저장공간을 초기화 작업합니다. 입력한 자료는 저장공간에 반영 되지 않았습니다!');
+        initLocalStorage();
+    }
+
 }
 
 
