@@ -1,14 +1,14 @@
-window.onload = function() {
+$(document).ready(function() {
     // 테스트 코드!! 이 코드 안없애면 계속 저장소 초기화 됨.
-    localStorage.clear();
+    //localStorage.clear();
     // 테스트 코드!! 이 코드 안없애면 계속 저장소 초기화 됨.
-    initLocalStorage();
-}
+    initGetLocalStorageData();
+});
 
 function Member(uid, pw, name) {
-    let userID = uid;
-    let userPW = pw;
-    let uName = name;
+    this.userID = uid;
+    this.userPW = pw;
+    this.uName = name;
 
     this.getUserID = function() {
         return userID;
@@ -36,21 +36,22 @@ function Member(uid, pw, name) {
 var members = [];
 
 function getData() {
-    var userID = document.getElementById('userID');
-    var userPW = document.getElementById('userPW');
-    var uName = document.getElementById('uName');
+    var userID = $('#userID').val();
+    var userPW = $('#userPW').val();
+    var uName = $('#uName').val();
+    console.log('입력 된 데이터 - uid : ' + userID + ' upw : ' + userPW + 'uName : ' + uName);
     //체크로직, 정규식 검사 필요.
-    if (userID.value == null || userID.value.length < 1) {
+    if (userID == null || userID.length < 1) {
         alert("아이디가 입력이 되지 않았습니다!");
         userID.focus();
         return false;
     }
-    if (userPW.value == null || userPW.value.length < 1) {
+    if (userPW == null || userPW.length < 1) {
         alert("비밀번호가 입력이 되지 않았습니다!");
         userPW.focus();
         return false;
     }
-    if (uName.value == null || uName.value.length < 1) {
+    if (uName == null || uName.length < 1) {
         alert("이름입력이 되지 않았습니다!");
         uName.focus();
         return false;
@@ -58,8 +59,8 @@ function getData() {
     // 정상이면 이 아래로 값을 입력하는 로직을 구현하여 값을 입력.
     members.push(new Member(userID, userPW, uName));
     setMemberValueToJSON(members);
+    $('input').val('');
     // 테스트 결과 배열이 내부 저장공간에 들어가는거 자체는 확인 했으나 값을 확인 할 수 없음.
-    document.getElementById('inputMemberValue').reset();
 }
 
 /* 
@@ -90,14 +91,24 @@ function initLocalStorage() {
     자료를 불러와서 자료가 끝날 때 까지 해당 자료를 출력한다.
 */
 function initGetLocalStorageData() {
-    var data = localStorage.getItem('memberList');
+    var data = localStorage.getItem('memberList'),
+        parseData = '',
+        uid = ''
+    upw = ''
+    uName = '';
     if (data == null) {
         // 자료가 없으면 저장소를 초기화 시도한다. - 애시당초 이 상황에 오는경우가 이상한 경우지만.
         initLocalStorage();
     } else {
         // 자료가 있으면 이하 자료 찍는 로직을 돌린다.
-        var memberList = '';
-        //id = "dListTitle" 아래로 자료를 규칙에 맞춰 찍어낸다.
+        parseData = JSON.parse(data);
+        for (var i = 0; i < parseData.length; i++) {
+            uid = parseData[i].userID;
+            upw = parseData[i].userPW;
+            uName = parseData[i].uName;
+            $('#dListBody:last').append('<tr>' + '<td>' + i + '</td>' + '<td>' + uid + '</td>' + '<td>' + upw + '</td>' + '<td>' + uName + '</td>' + '<td>' + 'dummy' + '</td>' + '</tr>');
+        }
+
     }
 }
 
@@ -110,9 +121,10 @@ function setMemberValueToJSON(member) {
     var jData = JSON.stringify(member);
     var test = localStorage.getItem('memberList');
     if (test != null) {
-        localStorage.setItem('memberList', jData);
+        Number(localStorage.setItem('memberList', jData)) + 1;
+        location.reload;
     } else {
-        alert('저장 공간이 없습니다. 저장공간을 초기화 작업합니다. 입력한 자료는 저장공간에 반영 되지 않았습니다!');
+        console.log('저장 공간이 없습니다. 저장공간을 초기화 작업합니다. 입력한 자료는 저장공간에 반영 되지 않았습니다!');
         initLocalStorage();
     }
 

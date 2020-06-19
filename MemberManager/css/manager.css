@@ -7,43 +7,15 @@
     font-size: 12px;
 }
 
-.iT1,
-.iT2,
-.iT3 {
-    width: 155px;
-    text-align: left;
-    float: left;
-}
-
 #inputBox {
     clear: both;
 }
 
-#dataInput {
-    width: 70px;
-    height: 30px;
-    align-content: center;
-    background-color: grey;
+.table {
+    width: 60%;
 }
 
-table {
-    border: 1px;
-    border-color: black;
-    width: 600px;
-    height: auto;
-}
-
-th {
-    background-color: cadetblue;
-    text-align: left;
-    padding-left: 3px;
-    padding-right: 20px;
-    padding-bottom: 10px;
-}
-
-td {
+.btn-light {
+    width: 80px;
     background-color: aquamarine;
-    text-align: left;
-    padding-left: 3px;
-    padding-bottom: 10px;
 }

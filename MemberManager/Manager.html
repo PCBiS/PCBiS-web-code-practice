@@ -6,6 +6,12 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>회원관리프로그램</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- 이하 jQuery 영역 -->
+    <script src='./js/jquery-1.12.4.js'></script>
+    <!-- 이하 부트스트랩 영역  -->
+    <link rel='stylesheet' type='text/css' href='./css/bootstrap.css'>
+    <script src='./js/bootstrap.js'></script>
+    <!-- 이하 사용자 JS/CSS 영역 -->
     <link rel='stylesheet' type='text/css' media='screen' href='./css/manager.css'>
     <script src='./js/manager.js'></script>
 </head>
@@ -17,28 +23,25 @@
     </div>
     <div id="section">
         <div id="inputMain">
-            <div id="inputTitle">
-                <div class="iT1">아이디(이메일)</div>
-                <div class="iT2">비밀번호</div>
-                <div class="iT3">이름</div>
-
-            </div>
-            <div id="inputBox">
-                <form id="inputMemberValue">
-                    <input type="text" id="userID">
-                    <input type="password" id="userPW">
-                    <input type="text" id="uName">
-                </form>
-                <div id="dataInput" onclick="getData()">
-                    <p>등록하기</p>
-                </div>
-            </div>
-
+            <table id="inputData" class="table table-active">
+                <tr>
+                    <th><label class="col-form-label-sm">아이디(이메일)</label></th>
+                    <th><label class="col-form-label-sm">비밀번호</label></th>
+                    <th><label class="col-form-label-sm">이름</label></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td><input type="text" id="userID"></td>
+                    <td><input type="password" id="userPW"></td>
+                    <td><input type="text" id="uName"></td>
+                    <td><button class="btn-light" onclick="getData()">입력하기</button></td>
+                </tr>
+            </table>
             <hr>
         </div>
         <div id="article">
             <p>회원 리스트</p>
-            <table id="dataList">
+            <table id="dataList" class="table table-striped">
                 <tr id="dListTitle">
                     <th>Index</th>
                     <th>아이디(이메일)</th>
@@ -46,6 +49,7 @@
                     <th>이름</th>
                     <th>관리기능</th>
                 </tr>
+                <tbody id='dListBody'></tbody>
             </table>
         </div>
     </div>
