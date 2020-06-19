@@ -10,30 +10,4 @@ $(document).ready(function() {
         }
         $('#memo+div.cnt').text(strLen);
     });
-
-    for (var i = 1970; i <= 2037; i++) {
-        var selected = '';
-        if (i == 2000) {
-            selected = 'selected';
-        }
-        $('#year').append('<option ' + selected + ' value="' + i + '">' + i + '</option>');
-    }
-
-    for (var i = 1; i <= 12; i++) {
-        var selected = '';
-        if (i == 6) {
-            selected = 'selected';
-        }
-        $('#month').append('<option ' + selected + ' value="' + i + '">' + i + '</option>');
-    }
-    // 1달이 31일인경우 1,3,5,7,8,10,12
-    // 1달이 30일인경우 4,6,11
-    // 1달이 28일인경우 2
-    for (var i = 1; i <= 31; i++) {
-        var selected = '';
-        if (i == 15) {
-            selected = 'selected';
-        }
-        $('#day').append('<option ' + selected + ' value="' + i + '">' + i + '</option>');
-    }
 });

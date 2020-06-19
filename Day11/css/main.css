@@ -2,6 +2,6 @@
     display: block;
 }
 
-
-/* 
-input[type:] {} */
+table.table {
+    width: 30%;
+}
