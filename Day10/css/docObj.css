@@ -1,0 +1,15 @@
+.title {
+    background-color: azure;
+}
+
+button.btn {
+    size: 25px;
+}
+
+div.memo {
+    padding: 10px;
+    border: 1px solid black;
+    margin: 10px;
+    width: 20%;
+    color: blueviolet;
+}
