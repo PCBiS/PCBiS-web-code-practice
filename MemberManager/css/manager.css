@@ -11,6 +11,15 @@
     clear: both;
 }
 
+hr {
+    float: left;
+    width: 61%;
+}
+
+#article>p {
+    clear: both;
+}
+
 .table {
     width: 60%;
 }

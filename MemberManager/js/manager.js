@@ -7,23 +7,23 @@ function Member(uid, pw, name) {
     this.userPW = pw;
     this.uName = name;
 
-    this.getUserID = function() {
-        return userID;
+    getUserID = function() {
+        return this.userID;
     }
-    this.getUserPW = function() {
-        return userPW;
+    getUserPW = function() {
+        return this.userPW;
     }
-    this.getUname = function() {
-        return uName;
+    getUname = function() {
+        return this.uName;
     }
 
-    this.setUserID = function(uid) {
+    setUserID = function(uid) {
         this.userID = uid;
     }
-    this.setUserPW = function(pw) {
+    setUserPW = function(pw) {
         this.userPW = pw;
     }
-    this.setUname = function(name) {
+    setUname = function(name) {
         this.uName = name;
     }
 
@@ -36,7 +36,8 @@ function getData() {
     var userID = $('#userID').val();
     var userPW = $('#userPW').val();
     var uName = $('#uName').val();
-    console.log('입력 된 데이터 - uid : ' + userID + ' upw : ' + userPW + ' uName : ' + uName);
+    alert('입력 된 데이터 - uid : ' + userID + ' upw : ' + userPW + ' uName : ' + uName);
+    alert('데이터 타입 - uid : ' + typeof(userID) + ' upw : ' + typeof(userPW) + ' uName : ' + typeof(uName));
     //체크로직, 정규식 검사 필요.
     if (userID == null || userID.length < 1) {
         alert("아이디가 입력이 되지 않았습니다!");
@@ -67,6 +68,55 @@ function getData() {
     }
 }
 
+function memberMOD(i) {
+    // 해당 idx에 해당하는 값을 가져와서
+    var modifyBeforeID = $('#dListBody > tr:eq(' + i + ') > td:eq(1)').text();
+    var modifyBeforePW = $('#dListBody > tr:eq(' + i + ') > td:eq(2)').text();
+    var modifyBeforeName = $('#dListBody > tr:eq(' + i + ') > td:eq(3)').text();
+    // 기존 저장폼에 덮어씌우고
+    $('#userID').val(modifyBeforeID);
+    $('#userPW').val(modifyBeforePW);
+    $('#uName').val(modifyBeforeName);
+    // 저장하기 버튼을 수정하기로 바꾸고.
+    $('#sendBtn').html('수정하기');
+    // 수정하기로 이름이 바뀐 버튼의 onclick 기능을 수정기능(index)으로 변경함.
+    $('#sendBtn').attr('onclick', 'setMemberMOD(' + i + ')');
+}
+// 기존값을 받아야 수정할 원본값을 찾을 수 있으니 전달해준다.
+function setMemberMOD(i) {
+    // 원본값에서 수정이 되었던 안되었던 관계 없이 idx는 memberMOD에서
+    // id, pw, name은 웹페이지에서 직접 받아온다.(수정이 되었을 수도, 안되었을 수도 있으니까.) 
+    var afterID = $('#userID').val();
+    var afterPW = $('#userPW').val();
+    var afterName = $('#uName').val();
+
+    // 받아 온 값을 members[i]에 대입한뒤.
+    members[i].id = afterID;
+    members[i].pw = afterPW;
+    members[i].uName = afterName;
+
+    // 저장을 한다.
+    localStorage.setItem('memberList', JSON.stringify(members));
+    // 수정을 위해 고쳤던 '#sendBtn' 버튼의 기능을 원상복구 하고
+    $('#sendBtn').html('저장하기');
+    $('#sendBtn').attr('onclick', 'getData()');
+    // page를 리로드 해서 다시 테이블을 draw한다.
+    //location.reload();
+}
+
+
+function memberDEL(i) {
+    var isDelete = confirm(i + ' 번 자료를 삭제하시겠습니까?');
+    if (isDelete != true) {
+        location.reload();
+    } else {
+        alert(i + '번 자료를 삭제하였습니다!');
+        members.splice(i, 1);
+        localStorage.setItem('memberList', JSON.stringify(members));
+        location.reload();
+    }
+}
+
 /*
     시작 할 때
     기존 자료가 존재하지 않는다면 에러임으로 초기화 작업을 수행.
@@ -88,7 +138,7 @@ function initGetLocalStorageData() {
             uid = members[i].userID;
             upw = members[i].userPW;
             uName = members[i].uName;
-            $('#dListBody:last').append('<tr>' + '<td>' + i + '</td>' + '<td>' + uid + '</td>' + '<td>' + upw + '</td>' + '<td>' + uName + '</td>' + '<td>' + '' + '</td > ' + ' < /tr>');
+            $('#dListBody:last').append('<tr>' + '<td>' + i + '</td>' + '<td>' + uid + '</td>' + '<td>' + upw + '</td>' + '<td>' + uName + '</td>' + '<td>' + '<a href="javascript:memberMOD(' + i + ')">수정</a> / <a href="javascript:memberDEL(' + i + ')">삭제</a>' + '</td > ' + ' < /tr>');
         }
 
     }
