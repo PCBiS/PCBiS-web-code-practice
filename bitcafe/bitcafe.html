@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>BootStrap</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- jQuery 영역 -->
+    <script src='./js/jquery-1.12.4.js'></script>
+    <!-- 부트 스트랩 영역 -->
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/bootstrap.css'>
+    <script src='./js/bootstrap.js'></script>
+    <!-- 사용자 영역 -->
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/main.css'>
+    <script src='./js/main.js'></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="javascript:refresh()">BitCafe</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" id="coffeeList">
+                    <a class="nav-link" href="#">커피류</a>
+                </li>
+                <li class="nav-item" id="drinkList">
+                    <a class="nav-link" href="#">음료류</a>
+                </li>
+                <li class="nav-item" id="dessertList">
+                    <a class="nav-link" href="#">디저트류</a>
+                </li>
+                <li class="nav-item" id="etcList">
+                    <a class="nav-link" href="#">기타 물품</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="coffeeList">
+        <div class="items">
+            <img src="./image/espresso.png">
+            <br>
+            <p class="name">에스프레소</p>
+            <p class="price">2500</p>
+            <p class="desc">에스프레소이다.</p>
+        </div>
+        <div class="items">
+            <img src="./image/americano_hot.jpg">
+            <br>
+            <p class="name">아메리카노</p>
+            <p class="price">3000</p>
+            <p class="desc">아메리카노이다.</p>
+        </div>
+        <div class="items">
+            <img src="./image/cappuccino.jpg ">
+            <br>
+            <p class="name">카푸치노</p>
+            <p class="price">3500</p>
+            <p class="desc">카푸치노이다.</p>
+        </div>
+        <div class="items">
+            <img src="./image/cafelatte_hot.jpg ">
+            <br>
+            <p class="name">카페라떼</p>
+            <p class="price">3500</p>
+            <p class="desc">카페라떼이다.</p>
+        </div>
+    </div>
+
+    <div class="drinkList ">
+        <div class="items ">
+            <img src="./image/espresso.png ">
+            <br>
+            <p>음료이름1</p>
+        </div>
+        <div class="items ">
+            <img src="./image/americano_hot.jpg ">
+            <br>
+            <p id="Americano ">음료이름2</p>
+        </div>
+        <div class="items ">
+            <img src="./image/cappuccino.jpg ">
+            <br>
+            <p>음료이름3</p>
+        </div>
+        <div class="items ">
+            <img src="./image/cafelatte_hot.jpg ">
+            <br>
+            <p>음료이름4</p>
+        </div>
+    </div>
+
+    <div class="dessertList ">
+        <div class="items ">
+            <img src="./image/espresso.png ">
+            <br>
+            <p>아이스크림</p>
+        </div>
+        <div class="items ">
+            <img src="./image/americano_hot.jpg ">
+            <br>
+            <p>케이크</p>
+        </div>
+        <div class="items ">
+            <img src="./image/cappuccino.jpg ">
+            <br>
+            <p>베이글</p>
+        </div>
+        <div class="items ">
+            <img src="./image/cafelatte_hot.jpg ">
+            <br>
+            <p>빵</p>
+        </div>
+    </div>
+
+    <div class="etcList ">
+        <div class="items ">
+            <img src="./image/espresso.png ">
+            <br>
+            <p>기타1</p>
+        </div>
+        <div class="items ">
+            <img src="./image/americano_hot.jpg ">
+            <br>
+            <p>기타2</p>
+        </div>
+        <div class="items ">
+            <img src="./image/cappuccino.jpg ">
+            <br>
+            <p>기타3</p>
+        </div>
+        <div class="items">
+            <img src="./image/cafelatte_hot.jpg">
+            <br>
+            <p>기타4</p>
+        </div>
+    </div>
+
+    <div class="rightSideBar">
+        <div class="getItemList">
+            <table class="table-responsive table-bordered">
+                <tr>
+                    <th> 제 품 명 </th>
+                    <th> 가 격 </th>
+                    <th> 수 량 </th>
+                </tr>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="buyItem">
+            <button>계산하기(더미)</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+#section {
+    position: relative;
+    top: auto;
+}
+
+#inputTitle {
+    font-size: 12px;
+}
+
+#inputBox {
+    clear: both;
+}
+
+hr {
+    float: left;
+    width: 61%;
+}
+
+#article>p {
+    clear: both;
+}
+
+.table {
+    width: 60%;
+}
+
+.btn-light {
+    width: 80px;
+    background-color: aquamarine;
+}

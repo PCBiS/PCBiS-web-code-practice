@@ -1,0 +1,102 @@
+.container {}
+
+.itemList {
+    width: 70%;
+    float: left;
+}
+
+.items>p.price,
+.items>p.desc {
+    display: none;
+}
+
+
+/*---------------------------*/
+
+.coffeeList {
+    display: none;
+}
+
+.coffeeList>div {
+    width: 160px;
+    float: left;
+}
+
+.coffeeList>div>img {
+    width: 140px;
+}
+
+
+/*---------------------------*/
+
+.drinkList {
+    display: none;
+}
+
+.drinkList>div {
+    width: 160px;
+    float: left;
+}
+
+.drinkList>div>img {
+    width: 140px;
+}
+
+
+/*---------------------------*/
+
+.dessertList {
+    display: none;
+}
+
+.dessertList>div {
+    width: 160px;
+    float: left;
+}
+
+.dessertList>div>img {
+    width: 140px;
+}
+
+
+/*---------------------------*/
+
+.etcList {
+    display: none;
+}
+
+.etcList>div {
+    width: 160px;
+    float: left;
+}
+
+.etcList>div>img {
+    width: 140px;
+}
+
+
+/*---------------------------*/
+
+.rightSideBar {
+    width: 20%;
+    float: right;
+}
+
+.getItemList {
+    height: 40%;
+    color: brown;
+}
+
+.buyItem {
+    width: 250px;
+    height: 60px;
+}
+
+.buyItem>div {
+    padding-right: 10px;
+}
+
+.itemName>p {
+    padding-right: 10px;
+    float: left;
+}
