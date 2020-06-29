@@ -7,7 +7,6 @@ function product(name, price, amount) {
 }
 
 $(document).ready(function() {
-    initGetSessionStorageData();
 
     $('.coffeeList').css('display', 'contents');
     $('.drinkList').css('display', 'none');
@@ -41,48 +40,9 @@ $(document).ready(function() {
 
     $('.items').click(function() {
         var name = $('p.name', this).text();
-        var price = $('p.price', this).text();
-        items.push(new product(name, price, 1));
-        sessionStorage.setItem('basket', JSON.stringify(items));
-        location.reload();
+        alert(name);
     });
 });
-
-function initSessionStorage() {
-    var data = sessionStorage.getItem('basket');
-
-    if (data != null) {
-        items = JSON.parse(data);
-    } else {
-        var jsonData = JSON.stringify(items);
-        sessionStorage.setItem('basket', jsonData);
-    }
-}
-
-function initGetSessionStorageData() {
-    var data = sessionStorage.getItem('basket'),
-        name = '',
-        price = '',
-        amount = '';
-    console.log(data);
-    if (data == null) {
-        // 자료가 없으면 저장소를 초기화 시도한다. - 애시당초 이 상황에 오는경우가 이상한 경우지만.
-        initSessionStorage();
-    } else {
-        // 자료가 있으면 이하 자료 찍는 로직을 돌린다.
-        items = JSON.parse(data);
-        for (var i = 0; i < items.length; i++) {
-            name = items[i].userID;
-            price = items[i].userPW;
-            amount = items[i].uName;
-            console.log(name + ' ' + price + ' ' + amount);
-            //$('#dListBody:last').append();
-        }
-
-    }
-}
-
-
 
 function refresh() {
     location.reload();
